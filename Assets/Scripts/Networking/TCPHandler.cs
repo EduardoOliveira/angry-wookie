@@ -9,7 +9,7 @@ using System;
 
 public class TCPHandler{
 	private static TCPHandler instance = null;
-	private string server = "172.17.15.50";
+	private string server = "169.254.191.224";
 	private int port = 30001;
     private Socket socket;
     private Thread listener = null;

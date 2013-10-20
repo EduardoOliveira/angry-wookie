@@ -73,15 +73,13 @@ public class MessageBuilder {
     }
 
 	public byte[] Build(){
-        int size = HEADER_SIZE + this.content.Length;
+        int size = HEADER_SIZE + this.content.Length+1;
 		byte[] message = new byte[size];
-        message[0] = (byte)(size - 1);
+        message[0] = (byte)(size - 2);
         message[1] = this.type;
-		
-		Debug.Log(size+"");
 
         Buffer.BlockCopy(this.content, 0, message, MessageBuilder.HEADER_SIZE, this.content.Length);
-
+        message[size-1] = 0xFF;
 		return message;
 	}
 

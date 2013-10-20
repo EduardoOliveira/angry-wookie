@@ -40,7 +40,6 @@ public class LoginEventHandler : MonoBehaviour {
 		Console.Write("Login Successful");
         MessageBuilder mb = new MessageBuilder(MessageType.LOGIN_SUCCESSFUL);
 		TCPHandler.getInstance().send(mb.Build());
-		
 		scriptPlayerHandler.login = true;
 		
 		
