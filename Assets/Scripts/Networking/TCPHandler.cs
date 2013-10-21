@@ -9,11 +9,11 @@ using System;
 
 public class TCPHandler{
 	private static TCPHandler instance = null;
-	private string server = "169.254.191.224";
+	private string server = "10.50.40.121";
 	private int port = 30001;
     private Socket socket;
     private Thread listener = null;
-	
+	private object lock_var = new object();
 	
 	public void connect(string server, string port){
 		if(server!=null)
@@ -37,9 +37,14 @@ public class TCPHandler{
         listener.Start();
 	}
 	
-	public void send(byte[] data) {
-		try{
-			socket.Send(data);
+	public void send(byte[] data) 
+    {
+		try
+        {
+            lock (this.lock_var)
+            {
+                socket.Send(data);
+            }
 		}catch(SocketException e){
 			Console.Write(e.ToString());
 		}
