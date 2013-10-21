@@ -24,12 +24,12 @@ public class MessageDispatcher{
                 LoginEvent.FireOnLoginFailed(msg);
                 break;
             case MessageType.LOGIN_INFO:
-                Console.Write("info");
                 LoginEvent.FireOnLoginInfo(msg);
                 break;
 
             //** Player events
             case MessageType.MOVEMENT_SYNC:
+                Console.Write("sync");
                 PlayerEvent.FireOnPlayerSync(msg);
                 break;
         }

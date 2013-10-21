@@ -31,7 +31,7 @@ public class TCPHandler{
 			socket.Connect(remoteEP);
 			Console.Write(">Connected");
 		}catch(SocketException e){
-			Console.Write(e.ToString());
+			Debug.Log(e.ToString());
 		}
         listener = new Thread(receive);
         listener.Start();
@@ -54,36 +54,27 @@ public class TCPHandler{
     {
         try
         {
-            int index = 0;
+            
             byte[] bytes;
             int bytesRec;
             byte[] msg;
             while (true)
             {
+                int index = 0;
                 bytes = new byte[1024];
+                Console.Write("before read");
                 bytesRec = socket.Receive(bytes);
+                Console.Write("Read " + bytes.ToString());
                 if (bytesRec != -1)
                 {
-
                    int size = bytes[index];
                    index++;
                    msg = new byte[size];
                    Console.Write("Size"+size);
                    Buffer.BlockCopy(bytes, index, msg, 0, size);
                    Message message = new Message(msg);
-                   Console.Write(message.printBytes());
-                   //Console.Write(message.getNextString());
                    MessageDispatcher.Dispatch(message);
                    index += size + 1;
-                    /*foreach(byte b in bytes)
-                    {
-                       
-                        
-                       Console.Write(b+ "");
-                    }*/
-                    
-                    //string message = Encoding.ASCII.GetString(bytes, 0, bytesRec);
-                    //Console.Write(">"+message);
                 }
                 else
                 {
@@ -93,11 +84,11 @@ public class TCPHandler{
         }
         catch (ThreadInterruptedException e)
         {
-            Console.Write(e.ToString());
+            Debug.Log(e.ToString());
         }
         catch (Exception e)
         {
-            Console.Write(e.ToString());
+            Debug.Log(e.ToString());
         }
     }
 

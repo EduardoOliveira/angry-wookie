@@ -54,6 +54,7 @@ public class Console : MonoBehaviour {
 					break;
 				case "exit":
 					Write (">exiting");
+                    TCPHandler.getInstance().stop();
 					Application.Quit();
 					break;
 				case "spawn":
@@ -61,7 +62,6 @@ public class Console : MonoBehaviour {
 					break;
 				case "session":
 //					PlayerEvents.fireOnCreatePlayer("qwe");
-					Console.Write("session");
 					SessionModule.HandleCommand(cmd);
 					break;
 				default:

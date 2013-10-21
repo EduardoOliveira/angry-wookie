@@ -24,7 +24,6 @@ public class SessionModule {
 	private static void LogIn(Command cmd){
 		string str = cmd.Parameters[0];
 		instance.token = str;
-		Console.Write("msg"+str);
         MessageBuilder mb = new MessageBuilder(MessageType.LOGIN);
         mb.Add(str);
         TCPHandler.getInstance().send(mb.Build());

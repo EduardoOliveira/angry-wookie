@@ -16,11 +16,7 @@ public class PlayerEvent{
 	
 	public static void FireOnPlayerSync(Message msg)
 	{
-		
-	}
-	
-	public static void fireOnCreatePlayer(Message msg)
-	{
-		
+        if (onPlayerSync != null)
+            onPlayerSync(msg);
 	}
 }
