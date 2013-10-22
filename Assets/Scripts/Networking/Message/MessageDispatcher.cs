@@ -3,18 +3,10 @@ using System.Collections;
 
 public class MessageDispatcher{
 
-    public MessageDispatcher(byte[] message) 
-    { 
-   
-        //this.body = new byte[]
-    
-    }
-
-
     public static void Dispatch(Message msg)
     {
         byte b = msg.getOpCode();
-        Console.Write("" + b);
+        Console.Write("Op" + b);
         switch (msg.getOpCode()) { 
             //** Login events
             case MessageType.LOGIN:

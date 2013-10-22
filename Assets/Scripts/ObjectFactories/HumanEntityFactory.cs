@@ -1,11 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-public class PlayerFactory : MonoBehaviour 
+
+public class HumanEntityFactory : MonoBehaviour 
 {
 	
-	private Dictionary<string,HumanEnitySync> players = new Dictionary<string,HumanEnitySync>();
+	private static HumanEnitySync players;
+    private static HumanEntity entityList = null;
+    private Message message = null;
 	public GameObject player = null;
+    public GameObject prefab = null;
 	
 	void Start () 
 	{
@@ -14,12 +18,38 @@ public class PlayerFactory : MonoBehaviour
 	
 	void onPlayerSync(Message message)
 	{
-		string id = message.getNextString();
-        Console.Write(id);
-		if(!players.ContainsKey(id))
+        this.message = message;
+        string id = message.getNextString();
+
+        Vector3 pos = new Vector3(message.getNextFloat(), message.getNextFloat(), message.getNextFloat());
+        if (entityList == null)
+            entityList = new HumanEntity(id,pos);
+      
+		entityList.Position = pos;
+		Debug.Log("New pos: " + pos);
+	}
+	
+    void Update()
+    {
+
+        if(entityList != null)
         {
-            players[id] = (HumanEnitySync)Instantiate(Resources.Load("ThirdParty"));
-        }
-        players[id].MoveTo(new Vector3(message.getNextFloat(), message.getNextFloat(), message.getNextFloat()));
+			HumanEntity entity = entityList;
+            if (!entity.Instatiated)
+            {
+                if (players == null)
+                {
+                    players = (HumanEnitySync)((GameObject)Instantiate(prefab)).GetComponent("HumanEnitySync");
+					
+					
+                    Debug.Log("Entity: " + entity + "(" + entity.ID + ")");
+                    players.SetEntity(entity);
+                    entity.Instatiated = true;
+                }
+            }
+            //players[entity.ID].MoveTo(new Vector3(message.getNextFloat(), message.getNextFloat(), message.getNextFloat()));
+		}
+		
+        
 	}
 }

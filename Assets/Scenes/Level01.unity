@@ -228,7 +228,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 532fde25d8ccf9241855bf3744cabc18, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.01551819
+      value: -3.1125896
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 532fde25d8ccf9241855bf3744cabc18, type: 2}
       propertyPath: m_LocalPosition.z
@@ -404,7 +404,7 @@ Transform:
   m_PrefabInternal: {fileID: 866440924}
   m_GameObject: {fileID: 1463025164}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.9348516, y: -3.01551819, z: 7.57892895}
+  m_LocalPosition: {x: -13.9348516, y: -3.1125896, z: 7.57892895}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1116480069}
@@ -437,8 +437,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02fe703f1d03ace4f89eaeb794a15643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
-  mouseSensitivity: 2
+  movementSpeed: 1
+  mouseSensitivity: 500
   upDownRange: 60
 --- !u!1 &1469140016
 GameObject:
@@ -449,6 +449,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1469140017}
   - 114: {fileID: 1469140018}
+  - 114: {fileID: 1469140019}
   m_Layer: 0
   m_Name: WorldSync
   m_TagString: Untagged
@@ -479,6 +480,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6818e95db1eac914980890119b2823b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1469140019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1469140016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7500396d7894191459d5d5213bea1f0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 100006, guid: 532fde25d8ccf9241855bf3744cabc18, type: 2}
+  prefab: {fileID: 100002, guid: fabaaa715b4814d408ce5171a8fec350, type: 2}
 --- !u!1 &1816483229
 GameObject:
   m_ObjectHideFlags: 0

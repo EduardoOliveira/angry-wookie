@@ -61,6 +61,7 @@ public class Console : MonoBehaviour {
 					//PlayerEvents.fireOnCreatePlayer("qwe");
 					break;
 				case "session":
+					
 //					PlayerEvents.fireOnCreatePlayer("qwe");
 					SessionModule.HandleCommand(cmd);
 					break;

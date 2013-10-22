@@ -10,7 +10,7 @@ public class PlayerSync : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		this.tcpHandler = TCPHandler.getInstance();
+		
 		playerObj = gameObject.transform.parent.gameObject;
 		LoginEvent.onLoginInfo += OnLoginInfo;
 	}
@@ -41,7 +41,7 @@ public class PlayerSync : MonoBehaviour {
             mb.Add(playerObj.transform.position.x);
             mb.Add(playerObj.transform.position.y);
             mb.Add(playerObj.transform.position.z);
-			tcpHandler.send(mb.Build());
+			TCPHandler.getInstance().send(mb.Build());
 		}
     }
 
