@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HumanEnitySync : MonoBehaviour {
+public class HumanEntitySync : MonoBehaviour {
 
     public GameObject humanEntity;
     private HumanEntity entity;
@@ -18,6 +18,7 @@ public class HumanEnitySync : MonoBehaviour {
         if(entity!=null)
 		{
 			humanEntity.transform.position = entity.Position;
+            humanEntity.transform.rotation = entity.Rotation;
 		}
 	}
 

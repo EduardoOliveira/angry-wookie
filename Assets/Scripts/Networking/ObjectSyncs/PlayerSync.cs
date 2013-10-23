@@ -27,7 +27,6 @@ public class PlayerSync : MonoBehaviour {
 
 	public void OnLoginInfo(Message msg)
     {
-        Console.Write("login");
         msg.getNextString();
         positionOverride = new Vector3(msg.getNextFloat(), msg.getNextFloat(), msg.getNextFloat());
         login = true;
@@ -41,6 +40,12 @@ public class PlayerSync : MonoBehaviour {
             mb.Add(playerObj.transform.position.x);
             mb.Add(playerObj.transform.position.y);
             mb.Add(playerObj.transform.position.z);
+            mb.Add(playerObj.transform.rotation.x);
+            mb.Add(playerObj.transform.rotation.y);
+            mb.Add(playerObj.transform.rotation.z);
+            mb.Add(playerObj.transform.rotation.w);
+
+//Debug.Log(playerObj.transform.rotation.x+" - "+playerObj.transform.rotation.y+" - "+playerObj.transform.rotation.z+" - "+playerObj.transform.rotation.w);
 			TCPHandler.getInstance().send(mb.Build());
 		}
     }

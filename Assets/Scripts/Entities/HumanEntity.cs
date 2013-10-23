@@ -5,6 +5,7 @@ public class HumanEntity {
 
     private string name;
     private Vector3 position;
+    private Quaternion rotation;
     private bool isInstatiated;
 
     public Vector3 Position
@@ -18,12 +19,11 @@ public class HumanEntity {
         set { isInstatiated = value; }
     }
 
-    public HumanEntity(string name, Vector3 position)
+    public HumanEntity(string name)
     {
         this.name = name;
-        this.position = position;
     }
 
-
+    public Quaternion Rotation { get { return rotation; } set { rotation = value; } }
     public string ID { get { return name; } set { name = value; } }
 }

@@ -22,6 +22,7 @@ public class MessageBuilder {
     //** Single Variable
     public MessageBuilder Add(string newContent)
     {
+        this.Add(newContent.Length);
         this.Add(System.Text.Encoding.UTF8.GetBytes(newContent));
         return this;
     }
@@ -75,10 +76,13 @@ public class MessageBuilder {
 	public byte[] Build(){
         int size = HEADER_SIZE + this.content.Length;
 		byte[] message = new byte[size];
+
         message[0] = (byte)(size - 1);
         message[1] = this.type;
         Buffer.BlockCopy(this.content, 0, message, MessageBuilder.HEADER_SIZE, this.content.Length);
-		return message;
+
+        Debug.Log("size"+message[0]+" opcode "+message[1]);
+        return message;
 	}
 
 }

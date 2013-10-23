@@ -39,6 +39,7 @@ public class Command{
 		return mainCommands.Contains(text.Split(' ')[0].ToLower());
 	}
 	
+
 	public string ToString(){
 		return main+" "+sub+String.Join(" ",parameters);
 	}

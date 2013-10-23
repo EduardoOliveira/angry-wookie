@@ -5,9 +5,8 @@ using System.Collections.Generic;
 public class HumanEntityFactory : MonoBehaviour 
 {
 	
-	private static HumanEnitySync players;
-    private static HumanEntity entityList = null;
-    private Message message = null;
+	private static Dictionary<string,HumanEntitySync> players = new Dictionary<string,HumanEntitySync>();
+    private static Dictionary<string, HumanEntity> entityList = new Dictionary<string, HumanEntity>();
 	public GameObject player = null;
     public GameObject prefab = null;
 	
@@ -18,20 +17,33 @@ public class HumanEntityFactory : MonoBehaviour
 	
 	void onPlayerSync(Message message)
 	{
-        this.message = message;
         string id = message.getNextString();
+        if(!entityList.ContainsKey(id))
+        {
+            entityList.Add(id,new HumanEntity(id));
+        }
 
-        Vector3 pos = new Vector3(message.getNextFloat(), message.getNextFloat(), message.getNextFloat());
-        if (entityList == null)
-            entityList = new HumanEntity(id,pos);
-      
-		entityList.Position = pos;
-		Debug.Log("New pos: " + pos);
+        entityList[id].Position = new Vector3(message.getNextFloat(), message.getNextFloat(), message.getNextFloat());
+        entityList[id].Rotation = new Quaternion(message.getNextFloat(),
+            message.getNextFloat(), 
+            message.getNextFloat(), 
+            message.getNextFloat()
+            );
 	}
 	
     void Update()
     {
 
+        foreach (HumanEntity entity in entityList.Values)
+        {
+            if (!players.ContainsKey(entity.ID))
+            {
+                players.Add(entity.ID, (HumanEntitySync)((GameObject)Instantiate(prefab)).GetComponent("HumanEntitySync"));
+                entity.Instatiated = true;
+            }
+            players[entity.ID].Entity = entity;
+        }
+        /*
         if(entityList != null)
         {
 			HumanEntity entity = entityList;
@@ -39,17 +51,15 @@ public class HumanEntityFactory : MonoBehaviour
             {
                 if (players == null)
                 {
-                    players = (HumanEnitySync)((GameObject)Instantiate(prefab)).GetComponent("HumanEnitySync");
+                    players = (HumanEntitySync)((GameObject)Instantiate(prefab)).GetComponent("HumanEntitySync");
 					
 					
                     Debug.Log("Entity: " + entity + "(" + entity.ID + ")");
                     players.SetEntity(entity);
                     entity.Instatiated = true;
                 }
-            }
+            }*/
             //players[entity.ID].MoveTo(new Vector3(message.getNextFloat(), message.getNextFloat(), message.getNextFloat()));
-		}
-		
         
 	}
 }
