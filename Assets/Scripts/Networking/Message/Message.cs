@@ -43,10 +43,19 @@ public class Message{
     public string getNextString()
     {
         int size = getNextInt();
-        Console.Write("str len" + size);
         string rtn = Encoding.UTF8.GetString(content, pointer, size);
         pointer += size;
         return rtn;
+    }
+
+    public Vector3 getNextVector3() 
+    {
+        return new Vector3(getNextFloat(), getNextFloat(), getNextFloat());
+    }
+
+    public Quaternion getNextQuartenion()
+    {
+        return new Quaternion(getNextFloat(), getNextFloat(), getNextFloat(), getNextFloat());
     }
 
     public string printBytes() 

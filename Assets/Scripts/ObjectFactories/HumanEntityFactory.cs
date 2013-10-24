@@ -43,23 +43,11 @@ public class HumanEntityFactory : MonoBehaviour
             }
             players[entity.ID].Entity = entity;
         }
-        /*
-        if(entityList != null)
-        {
-			HumanEntity entity = entityList;
-            if (!entity.Instatiated)
-            {
-                if (players == null)
-                {
-                    players = (HumanEntitySync)((GameObject)Instantiate(prefab)).GetComponent("HumanEntitySync");
-					
-					
-                    Debug.Log("Entity: " + entity + "(" + entity.ID + ")");
-                    players.SetEntity(entity);
-                    entity.Instatiated = true;
-                }
-            }*/
-            //players[entity.ID].MoveTo(new Vector3(message.getNextFloat(), message.getNextFloat(), message.getNextFloat()));
         
 	}
+
+    public static HumanEntitySync GetEntity(string id)
+    {
+        return players[id];
+    }
 }

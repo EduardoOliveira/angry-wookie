@@ -7,6 +7,7 @@ public class PlayerSync : MonoBehaviour {
 	public bool login = false;
 	private GameObject playerObj = null;
     private Vector3 positionOverride = Vector3.zero;
+    private HumanEntity entity = new HumanEntity("sd ");
 	// Use this for initialization
 	void Start () 
 	{
@@ -23,6 +24,8 @@ public class PlayerSync : MonoBehaviour {
             playerObj.transform.position = positionOverride;
             positionOverride = Vector3.zero;
         }
+        entity.Position = transform.position;
+        entity.Rotation = transform.rotation;
 	}
 
 	public void OnLoginInfo(Message msg)
@@ -48,6 +51,11 @@ public class PlayerSync : MonoBehaviour {
 //Debug.Log(playerObj.transform.rotation.x+" - "+playerObj.transform.rotation.y+" - "+playerObj.transform.rotation.z+" - "+playerObj.transform.rotation.w);
 			TCPHandler.getInstance().send(mb.Build());
 		}
+    }
+
+    public HumanEntity Entity 
+    {
+        get { return entity; }
     }
 
 }

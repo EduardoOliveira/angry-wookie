@@ -19,4 +19,21 @@ public class MessageType {
 
     public const byte MOVEMENT_SYNC = 0x20;         //player move message
 
+
+    /*
+     * Projectile Events 
+     */
+
+    public const byte SHOOTING_MASTER_SIMPLE = 0x31;
+    public const byte SHOOTING_SLAVE_SIMPLE = 0x32;
+
+
+    /*
+     *  Damage Events
+     */
+
+    public const byte DAMAGE_TAKEN_SIMPLE = 0x40;
+    public const byte DAMAGE_TAKEN_VECTOR = 0x41;
+ 
+
 }

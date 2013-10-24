@@ -24,6 +24,12 @@ public class MessageDispatcher{
                 Console.Write("sync");
                 PlayerEvent.FireOnPlayerSync(msg);
                 break;
+
+            //** Shotting events
+            case MessageType.SHOOTING_SLAVE_SIMPLE:
+                Debug.Log("shot Recieved");
+                ProjectileEvent.FireOnShootindSlaveSimple(msg);
+                break;
         }
     }
 }
