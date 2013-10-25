@@ -8,11 +8,14 @@ public class HumanEntityFactory : MonoBehaviour
 	private static Dictionary<string,HumanEntitySync> players = new Dictionary<string,HumanEntitySync>();
     private static Dictionary<string, HumanEntity> entityList = new Dictionary<string, HumanEntity>();
 	public GameObject player = null;
+    private HumanEntity playerEntity;
     public GameObject prefab = null;
 	
 	void Start () 
 	{
-		PlayerEvent.onPlayerSync += onPlayerSync;
+        this.playerEntity = ((PlayerSync)transform.root.GetComponentInChildren<PlayerSync>()).Entity;
+        entityList.Add(this.playerEntity.ID, this.playerEntity);
+        PlayerEvent.onPlayerSync += onPlayerSync;
 	}
 	
 	void onPlayerSync(Message message)
@@ -46,8 +49,8 @@ public class HumanEntityFactory : MonoBehaviour
         
 	}
 
-    public static HumanEntitySync GetEntity(string id)
+    public static HumanEntity GetEntity(string id)
     {
-        return players[id];
+        return entityList[id];
     }
 }

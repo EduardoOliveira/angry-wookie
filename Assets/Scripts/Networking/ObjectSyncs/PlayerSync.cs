@@ -47,8 +47,6 @@ public class PlayerSync : MonoBehaviour {
             mb.Add(playerObj.transform.rotation.y);
             mb.Add(playerObj.transform.rotation.z);
             mb.Add(playerObj.transform.rotation.w);
-
-//Debug.Log(playerObj.transform.rotation.x+" - "+playerObj.transform.rotation.y+" - "+playerObj.transform.rotation.z+" - "+playerObj.transform.rotation.w);
 			TCPHandler.getInstance().send(mb.Build());
 		}
     }

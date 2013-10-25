@@ -81,7 +81,6 @@ public class MessageBuilder {
         message[1] = this.type;
         Buffer.BlockCopy(this.content, 0, message, MessageBuilder.HEADER_SIZE, this.content.Length);
 
-        Debug.Log("size"+message[0]+" opcode "+message[1]);
         return message;
 	}
 

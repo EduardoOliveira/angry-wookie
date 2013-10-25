@@ -5,7 +5,7 @@ public class ProjectileEntitySync : MonoBehaviour {
     public GameObject prefab;
     private ProjectileEntity entity;
 
-    private float speed = 20;
+    private float speed = 1;
     private bool expended = false;
     private RaycastHit hit;
     private float range = 1.5f;
@@ -21,12 +21,13 @@ public class ProjectileEntitySync : MonoBehaviour {
     void Start()
     {
         transform.position = entity.Position;
+        StartCoroutine(expire());
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime);
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
 
         if (Physics.Raycast(transform.position, transform.up, out hit, range) &&
             !expended)
@@ -40,6 +41,12 @@ public class ProjectileEntitySync : MonoBehaviour {
             }
 
         }
+    }
+
+    IEnumerator expire()
+    {
+        yield return new WaitForSeconds(expireTimer);
+        Destroy(transform.gameObject);
     }
     
 }

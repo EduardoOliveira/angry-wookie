@@ -18,14 +18,22 @@ public class ProjectileFactory : MonoBehaviour {
         {
             if (!entity.Instantiated) 
             {
-                HumanEntity humanEntity = HumanEntityFactory.GetEntity(entity.Owner).Entity;
+                HumanEntity humanEntity = HumanEntityFactory.GetEntity(entity.Owner);
                 humanEntity.Rotation = entity.Rotation;
                 entity.Position = humanEntity.Position;
 
-                ((ProjectileEntitySync)((GameObject)GameObject.Instantiate(
-                    Resources.Load("Simple_Projectile", typeof(GameObject)))
-                    ).GetComponent("ProjectileEntitySync")).Entity = entity;
+                ((ProjectileEntitySync)((GameObject)
+                    GameObject.Instantiate(prefab)).GetComponent("ProjectileEntitySync")
+                    ).Entity = entity;
                 entity.Instantiated = true;
+                /*
+            Instantiate(blaster,
+                position,
+                Quaternion.Euler(
+                    cameraHeadTransform.eulerAngles.x + 90,
+                    transform.eulerAngles.y,
+                    0
+                ));*/
             }
             
         }
