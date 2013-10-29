@@ -1,0 +1,131 @@
+fileFormatVersion: 2
+guid: 262f49f710f574b45a1c4e309718a5af
+ModelImporter:
+  serializedVersion: 15
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: pCube232_006
+    100004: pCube232_007
+    100006: pCube232_008
+    100008: pCube232_009
+    100010: pCube232_010
+    100012: pCube232_011
+    100014: pCube232_012
+    100016: pCube232_013
+    100018: pCube232_014
+    100020: pCube232_015
+    100022: pCube232_016
+    100024: pCube232_017
+    100026: pCube232_018
+    100028: pCube232_019
+    400000: //RootNode
+    400002: pCube232_006
+    400004: pCube232_007
+    400006: pCube232_008
+    400008: pCube232_009
+    400010: pCube232_010
+    400012: pCube232_011
+    400014: pCube232_012
+    400016: pCube232_013
+    400018: pCube232_014
+    400020: pCube232_015
+    400022: pCube232_016
+    400024: pCube232_017
+    400026: pCube232_018
+    400028: pCube232_019
+    2300000: pCube232_006
+    2300002: pCube232_007
+    2300004: pCube232_008
+    2300006: pCube232_009
+    2300008: pCube232_010
+    2300010: pCube232_011
+    2300012: pCube232_012
+    2300014: pCube232_013
+    2300016: pCube232_014
+    2300018: pCube232_015
+    2300020: pCube232_016
+    2300022: pCube232_017
+    2300024: pCube232_018
+    2300026: pCube232_019
+    3300000: pCube232_006
+    3300002: pCube232_007
+    3300004: pCube232_008
+    3300006: pCube232_009
+    3300008: pCube232_010
+    3300010: pCube232_011
+    3300012: pCube232_012
+    3300014: pCube232_013
+    3300016: pCube232_014
+    3300018: pCube232_015
+    3300020: pCube232_016
+    3300022: pCube232_017
+    3300024: pCube232_018
+    3300026: pCube232_019
+    4300000: pCube232_019
+    4300002: pCube232_018
+    4300004: pCube232_017
+    4300006: pCube232_016
+    4300008: pCube232_015
+    4300010: pCube232_014
+    4300012: pCube232_013
+    4300014: pCube232_012
+    4300016: pCube232_011
+    4300018: pCube232_010
+    4300020: pCube232_009
+    4300022: pCube232_008
+    4300024: pCube232_007
+    4300026: pCube232_006
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    handles: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  additionalBone: 1
+  animationType: 2
+  userData: 
