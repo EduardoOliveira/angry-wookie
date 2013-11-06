@@ -87,7 +87,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 532fde25d8ccf9241855bf3744cabc18, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 292.799988
+      value: 662.299988
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: 532fde25d8ccf9241855bf3744cabc18, type: 2}
       propertyPath: m_LocalPosition.z
@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &254811870
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -393,6 +393,94 @@ MeshCollider:
   m_SmoothSphereCollisions: 0
   m_Convex: 0
   m_Mesh: {fileID: 4300306, guid: 6592951dded015f4c95e8afb03eba3c5, type: 3}
+--- !u!1 &734740336
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 734740339}
+  - 114: {fileID: 734740338}
+  - 154: {fileID: 734740337}
+  - 114: {fileID: 734740340}
+  m_Layer: 0
+  m_Name: Terrain
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!154 &734740337
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734740336}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_TerrainData: {fileID: 15600000, guid: 5d1556a76322a6e4cb17ae0dc05ecd57, type: 2}
+  m_CreateTreeColliders: 1
+--- !u!114 &734740338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734740336}
+  m_Enabled: 1
+  m_EditorHideFlags: 1
+  m_Script: {fileID: 12000, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TerrainData: {fileID: 15600000, guid: 5d1556a76322a6e4cb17ae0dc05ecd57, type: 2}
+  m_TreeDistance: 2000
+  m_TreeBillboardDistance: 5
+  m_TreeCrossFadeLength: 5
+  m_TreeMaximumFullLODCount: 50
+  m_DetailObjectDistance: 64
+  m_DetailObjectDensity: 1
+  m_HeightmapPixelError: 69
+  m_SplatMapDistance: 0
+  m_HeightmapMaximumLOD: 0
+  m_CastShadows: 1
+  m_LightmapIndex: -1
+  m_LightmapSize: 1024
+  m_DrawTreesAndFoliage: 1
+  m_MaterialTemplate: {fileID: 0}
+--- !u!4 &734740339
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734740336}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+--- !u!114 &734740340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 734740336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdfa8e7e74a7e4e588bd6029037adfa6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SplattingDistance: 600
+  CustomColorMap: {fileID: 2800000, guid: 1f7c7bbabead94647b57c0cfd54e715f, type: 3}
+  TerrainNormalMap: {fileID: 0}
+  ColTex0: {r: .356862754, g: .368627459, b: .286274523, a: 0}
+  ColTex1: {r: .243137255, g: .235294119, b: .20784314, a: 0}
+  ColTex2: {r: .43921569, g: .458823532, b: .356862754, a: 0}
+  ColTex3: {r: .352941185, g: .360784322, b: .301960796, a: 0}
+  Bump0: {fileID: 2800000, guid: d56ffd4b8685440168cd1ab8b645d321, type: 3}
+  Bump1: {fileID: 2800000, guid: addbd2ffc0f0f3245a8aee016a710950, type: 3}
+  Bump2: {fileID: 2800000, guid: 26722159a86adba4eab16abbd511f0b9, type: 3}
+  Bump3: {fileID: 2800000, guid: 6387deb69cac1d94a906e3f8c7f4b85a, type: 3}
 --- !u!1 &860935339
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,7 +675,7 @@ Transform:
   m_PrefabInternal: {fileID: 195742033}
   m_GameObject: {fileID: 1030414964}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1000, y: 292.799988, z: 1000}
+  m_LocalPosition: {x: 1000, y: 662.299988, z: 1000}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 462423201}
@@ -640,7 +728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1587739613
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -811,7 +899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &1818149041
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -1047,7 +1135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!154 &2117557180
 TerrainCollider:
   m_ObjectHideFlags: 0
